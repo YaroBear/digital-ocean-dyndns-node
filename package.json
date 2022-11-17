@@ -1,0 +1,14 @@
+{
+  "name": "digital-ocean-dyndns",
+  "version": "1.0.0",
+  "description": "A utility that grabs the hosts current public IP and publishes an A record to the given domain using Digital Ocean's V2 API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "berejnoi.yaroslav@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "digitalocean": "^1.2.1"
+  }
+}
