@@ -97,7 +97,9 @@ const checkAndUpdateRecords = () => {
                     if (publicIP != targetRecord.data) {
                         updateRecord(targetRecord.id, publicIP);
                     }
-                    console.log("IP address is unchanged");
+                    else {
+                        console.log("IP address is unchanged");
+                    }
                 }
             });
         });
