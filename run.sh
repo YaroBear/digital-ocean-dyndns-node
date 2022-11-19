@@ -1,4 +1,4 @@
-docker run -d --name dynsns-node \
+docker run -d --name dyndns-node \
     -e TOKEN="" \
     -e DOMAIN_NAME="" \
     -e A_RECORD="" \
