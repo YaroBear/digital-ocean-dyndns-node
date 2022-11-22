@@ -12,9 +12,16 @@ You will need:
 ## Build and install
 
 ### Using Docker
-- Run the build-install.sh on the target machine
-    - This will build the image and then install the systemd service to run a Docker container.
+- Run the build-install.sh on the target machine (as a root user)
+    - This will build the image and then install a systemd service to run a Docker container containing the node.js script.
     - You will be prompted to enter in your personal access token, domain name, and A record which will get set as environment variables for the service to use/pass into the running container.
 
-- OR: You can also just run the build.sh and run.sh (making sure to set environment variables before) if you don't plan to install this as a systemd service.
-- OR: `npm i`, and `npm run` (making sure to set environment variables before)
+![install prompt](/screenshots/install.png?raw=true)
+
+Inspecting the status of the service the first time should indicate that the env.conf was drop-in was loaded (contains all the environment variables) and that the `ExecStartPre` steps failed. This is expected as they are there to ensure that the container is not already running on subsequent startups.
+
+![systemctl status](/screenshots/systemctl-status.png?raw=true)
+
+### Other methods
+- OR: You can run the build.sh and run.sh separately (making sure to set environment variables before) if you don't plan to install this as a systemd service.
+- OR: `npm i`, and `npm run` (making sure to set environment variables before) to run outside of Docker entirely.
