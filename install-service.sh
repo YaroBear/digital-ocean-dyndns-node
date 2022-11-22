@@ -26,3 +26,5 @@ echo "Environment=\"A_RECORD=$a_record\"" >> "$envconfpath"
 
 systemctl enable "$svcname"
 systemctl start "$svcname"
+# if this is a subsequent install, reload in case env vars changed
+systemctl daemon-reload

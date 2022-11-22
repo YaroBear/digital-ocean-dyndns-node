@@ -22,6 +22,8 @@ Inspecting the status of the service the first time should indicate that the env
 
 ![systemctl status](/screenshots/systemctl-status.png?raw=true)
 
+> **_NOTE:_** If you need to change the environment variables for any reason, the install script can be run again or you can simply modify `/etc/systemd/system/docker.digital-ocean-dyndns-node.service.d/env.conf` and run `systemctl daemon-reload` to reload the environment variables.
+
 ### Other methods
 - OR: You can run the build.sh and run.sh separately (making sure to set environment variables before) if you don't plan to install this as a systemd service.
 - OR: `npm i`, and `npm run` (making sure to set environment variables before) to run outside of Docker entirely.
