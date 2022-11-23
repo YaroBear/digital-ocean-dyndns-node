@@ -1,0 +1,18 @@
+[Unit]
+Description=Digital Ocean Dyndns Node Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop %n
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStart=/usr/bin/docker run --rm --name %n \
+	-e TOKEN=${TOKEN} \
+	-e DOMAIN_NAME=${DOMAIN_NAME} \
+	-e A_RECORD=${A_RECORD} \
+	digital-ocean-dyndns-node
+
+[Install]
+WantedBy=multi-user.target
